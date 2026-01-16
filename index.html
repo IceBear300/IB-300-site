@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Ice Bear</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --purple: #b36bff;
+  --dark: #07000d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: radial-gradient(circle at top, #1a002e, var(--dark));
+  color: #eee;
+  overflow-x: hidden;
+}
+
+/* PURPLE SMOKE */
+.smoke {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(179,107,255,.25), transparent 40%),
+    radial-gradient(circle at 80% 60%, rgba(140,70,255,.2), transparent 45%);
+  filter: blur(60px);
+  animation: drift 20s infinite alternate ease-in-out;
+  z-index: -1;
+}
+
+@keyframes drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100px); }
+}
+
+/* CONTAINER */
+.container {
+  max-width: 420px;
+  margin: auto;
+  padding: 30px 18px 60px;
+  text-align: center;
+}
+
+/* ICE GLOW */
+.glow {
+  text-shadow:
+    0 0 10px var(--purple),
+    0 0 30px rgba(179,107,255,.8);
+}
+
+/* HERO */
+.hero h1 {
+  font-size: 2.8rem;
+  letter-spacing: 4px;
+}
+
+.hero p {
+  opacity: .85;
+  margin-top: 8px;
+  font-size: 1rem;
+}
+
+/* MUSIC PLAYER */
+.player {
+  margin: 30px 0;
+  background: rgba(20,0,40,.8);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 0 25px rgba(179,107,255,.4);
+}
+
+.player button {
+  background: none;
+  border: 2px solid var(--purple);
+  color: white;
+  padding: 12px 22px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.player button:hover {
+  background: var(--purple);
+  color: black;
+}
+
+/* LINKS (CARRD STYLE) */
+.links a {
+  display: block;
+  margin: 14px 0;
+  padding: 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #1c0033, #2b0055);
+  border: 1px solid rgba(179,107,255,.6);
+  box-shadow: 0 0 15px rgba(179,107,255,.3);
+  transition: transform .2s, box-shadow .2s;
+}
+
+.links a:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(179,107,255,.8);
+}
+
+/* LORE */
+.lore {
+  margin-top: 35px;
+  font-size: .95rem;
+  opacity: .85;
+  line-height: 1.6;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 40px;
+  font-size: .75rem;
+  opacity: .5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="smoke"></div>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1 class="glow">ICE BEAR</h1>
+    <p>Cold blood • Purple ice • Midnight rituals</p>
+  </div>
+
+  <!-- MUSIC PLAYER -->
+  <div class="player">
+    <p class="glow">Now Playing</p>
+    <audio id="track" src="your-song.mp3"></audio>
+    <button onclick="togglePlay()">▶ / ❚❚</button>
+  </div>
+
+  <!-- LINKS -->
+  <div class="links">
+    <a href="#">🎧 Spotify</a>
+    <a href="#">🔥 SoundCloud</a>
+    <a href="#">📺 YouTube</a>
+    <a href="#">🎵 Apple Music</a>
+    <a href="#">🧊 Merch</a>
+    <a href="#">📷 Instagram</a>
+    <a href="#">🎥 TikTok</a>
+  </div>
+
+  <!-- LORE -->
+  <div class="lore">
+    Born from frozen silence and purple flame.<br>
+    Ice Bear walks between shadows and soundwaves —<br>
+    carving cold emotion into distorted melodies.
+  </div>
+
+  <footer>
+    © 2026 ICE BEAR
+  </footer>
+
+</div>
+
+<script>
+const audio = document.getElementById("track");
+
+function togglePlay() {
+  if (audio.paused) {
+    audio.play();
+  } else {
+    audio.pause();
+  }
+}
+</script>
+
+</body>
+</html>icebear-site/
+  index.html
+  icebear-track.mp3
